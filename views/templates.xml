@@ -1,0 +1,137 @@
+    <odoo>
+
+    
+    <template id="assets_common" name="custom" inherit_id="web.assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/academy/static/src/css/custom.css"/>
+            <script type="text/javascript" src="/academy/static/src/js/custom.js"/>
+            <script type="text/javascript" src="/academy/static/src/js/sum_a.js"/>
+            <script type="text/javascript" src="/academy/static/src/js/sum_b.js"/>
+        </xpath>
+    </template>
+      
+
+        
+     <!--   <template id="index">
+            <title>Academy</title>
+            <t t-foreach="teachers" t-as="teacher">
+                <p>
+                    <t t-esc="teacher.id"/>
+                    <t t-esc="teacher.name"/>
+                </p>
+            </t>
+        </template>-->
+ 
+        
+     <template id="index">
+            <t t-call="website.layout">
+                <t t-set="title">Academy</t>
+                    <div class="oe_structure">
+                        <div class="container">
+                            <!--
+                          <a class="btn btn-block btn-danger btn-lg" href="/academy/create_form">Create Record</a>
+                            -->
+                            <!--badge create demo code  
+                            <button type="button" class="btn btn-primary">
+                                Messages <span class="badge badge-light">4</span>
+                            </button> -->
+                            <!-- svg demo code-->
+                            
+
+                            <div class="svg-wrapper">
+                              <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                                <rect class="shape " height="60" width="320" />
+                              </svg>
+                               <div class="text"><a href="/academy/create_form">Create Record</a></div>
+                            </div> 
+                            
+                            <table border="0"  width="100%" style="font-size: 16px;text-align:center;" class="table table-hover">
+                                <tr class="btn-info btn-lg">
+                                    <th style="text-align: center">ID</th>
+                                    <th style="text-align: center">Name</th>
+                                    <th style="text-align: center">biography</th>
+                                    <th style="text-align: center">Edit</th>
+                                    <th style="text-align: center">Delete</th>
+                                    <th style="text-align: center">Write Date-Last modified </th>
+                                </tr>
+                                <t t-foreach="teachers" t-as="teacher">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="teacher.id"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="teacher.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="teacher.biography"/>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info" t-attf-href="/academy/edit_form/#{teacher.id}">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info" t-attf-href="/academy/delete/#{teacher.id}">Delete</a>
+                                         <!--   <button href="/academy/delete/#{teacher.id}">Delete</button>--> 
+
+                                        </td>
+                                        <td>
+                                           <i t-field="teacher.write_date" t-options='{"widget": "relative"}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </div>
+            </t>
+        </template> 
+
+
+        <template id="create_academy">
+            <t t-call="website.layout">
+                <t t-set="title">Academy</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        
+                        <form t-attf-action="/academy/create/" method="post" class="form-horizontal">
+                            <h2>record create</h2>
+                            Name: <input type="text" name="name" placeholder="Enter Name"/>
+                            <input type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="edit_academy">
+            <t t-call="website.layout">
+                <t t-set="title">Academy</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        
+                        <form t-attf-action="/academy/edit/#{teachers.id}" method="post">
+                            Name: <input type="text" name="name" t-att-value="teachers.name"/>
+                            <input type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                </div>
+            </t>
+        </template> 
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+
+</odoo>

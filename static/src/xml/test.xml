@@ -1,0 +1,11 @@
+<odoo>
+	<template>
+    <t t-name="some.template">
+    	<div>
+    	 <span class="val"><t t-esc="widget.count"/></span>
+    	 <button>Increment</button>
+    	</div>
+    </t>
+</template>
+
+</odoo>

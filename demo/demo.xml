@@ -1,0 +1,79 @@
+<odoo>
+    <data noupdate="1">
+        <record id="Padilla" model="academy.teachers">
+            <field name="name">Diana Padilla</field>
+        </record>
+        <record id="carroll" model="academy.teachers">
+            <field name="name">jody Carroll</field>
+        </record>
+        <record id="Vaughn" model="academy.teachers">
+            <field name="name">Lester Vaughn</field>
+        </record>
+
+        
+       <!--  <record id="course0" model="product.template">
+            <field name="name">Course 0</field>
+            <field name="teacher_id" ref="Padilla"/>
+            <field name="public_categ_ids" eval="[(4, ref('academy.category_courses'), False)]"/>
+            <field name="website_published">True</field>
+            <field name="list_price" type="float">0</field>
+            <field name="type">service</field>
+        </record>
+        
+        <record id="course1" model="product.template">
+            <field name="name">Course 1</field>
+            <field name="teacher_id" ref="carroll"/>
+            <field name="public_categ_ids" eval="[(4, ref('academy.category_courses'), False)]"/>
+            <field name="website_published">True</field>
+            <field name="list_price" type="float">0</field>
+            <field name="type">service</field>
+        </record>
+        <record id="course2" model="product.template">
+            <field name="name">Course 2</field>
+            <field name="teacher_id" ref="Vaughn"/>
+            <field name="public_categ_ids" eval="[(4, ref('academy.category_courses'), False)]"/>
+            <field name="website_published">True</field>
+            <field name="list_price" type="float">0</field>
+            <field name="type">service</field>
+        </record>
+        <record id="course3" model="product.template">
+            <field name="name">Course 3</field>
+            <field name="teacher_id" ref="Padilla"/>
+            <field name="public_categ_ids" eval="[(4, ref('academy.category_courses'), False)]"/>
+            <field name="website_published">True</field>
+            <field name="list_price" type="float">0</field>
+            <field name="type">service</field>
+        </record>
+        <record id="" model="example.companies">
+            <field name="name">Rajesh Prajapati</field>
+            <field name="phone">+91 9714518166</field>
+            <field name="email">Rajesh_prajapati1012@yahoo.com</field>
+        </record> -->
+        <!--  -->
+        <!--   <record id="object0" model="academy.academy"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--     <field name="value">0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="academy.academy"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="academy.academy"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="academy.academy"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="academy.academy"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>

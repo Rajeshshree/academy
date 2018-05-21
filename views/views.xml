@@ -1,0 +1,437 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="academy.kanban">
+      <field name="name">academy list</field>
+      <field name="model">academy.academy</field>
+      <field name="arch" type="xml">
+    <kanban>
+                <field name = "name" />
+                <field name = "value" />
+                <field name = "value2" />
+                <field name = "value3" />
+                <templates>
+                    <t t-name = "kanban-box">
+                        <div class = "oe_kanban_card">
+                            <a type = "open">
+                                <ul>
+                                    <li><strong><field name = "name"/></strong></li>
+                                    <li><strong><field name = "value" /></strong></li>
+                                    <li><strong><field name = "value2" /></strong></li>
+                                    <li><strong><field name = "value3" /></strong></li>
+                                    
+                                </ul>
+                            </a>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="academy.list">
+      <field name="name">academy list</field>
+      <field name="model">academy.academy</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="value3"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="name_list">
+      <field name="name">Name list</field>
+      <field name="model">name.list.academy</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+          <field name="name" widget="my-custom-field"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="value3"/>
+
+        </group>
+        
+        </form>
+
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="name_list_1">
+      <field name="name">academy window</field>
+      <field name="res_model">name.list.academy</field>
+      <field name="view_mode">form</field>
+      <field name = "view_type">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!--model name academy.teacher start-->
+     <record model="ir.ui.view" id="teacher_list">
+      <field name="name">Teachers</field>
+      <field name="model">academy.teachers</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+              <field name="name"/>
+          </group>
+        
+        </form>
+
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="teacher_list_1">
+      <field name="name">academy teacher</field>
+      <field name="res_model">academy.teachers</field>
+      <field name="view_mode">form</field>
+      <field name = "view_type">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <!--model academy.teacger finish -->
+
+
+    <record model="ir.ui.view" id="academy.form">
+      <field name="name">academy list</field>
+      <field name="model">academy.academy</field>
+      <field name="arch" type="xml">
+        <form>
+
+          <sheet>
+            <!--
+              <h2>Basic Panel</h2>
+              <div class="panel panel-default">
+                <div class="panel-body">A Basic Panel</div>
+              </div>
+            
+            <div class="col-sm-6" style="background-color:yellow;">
+              Rajesh
+            </div>
+
+            <div class="col-sm-6" style="background-color:pink;">
+              Prajapati
+            </div>
+            -->
+  
+              <button  icon="fa-bars" type="action" string="Wizard Demo" name="%(academy.name_list_1)d"/>
+              <button  icon="fa-bars" type="action" string="Prajapati" name="..."/>
+
+            <group>
+              <field name="name"/>
+              <field name="value"/>
+              <field name="value2"/>
+              <field name="value3"/>
+            </group>
+            <notebook >
+              <page string = "Stock">
+                  <form>
+                    <group>
+                          <field name="name"/>
+                    </group>    
+                  </form>
+              </page>
+            </notebook>
+        </sheet>
+        </form>
+      </field>
+    </record>
+
+    
+      <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="academy_window">
+      <field name="name">academy window</field>
+      <field name="res_model">academy.academy</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name = "view_type">form</field>
+      <field name="view_id" ref="academy.kanban"/>
+    </record>
+
+    <act_window
+            id="name list"
+            name="Register Name"
+            res_model="name.list.academy"
+            src_model="academy.academy"
+            view_mode="form"
+            multi="True"
+            target="new"
+            key2="client_action_multi"
+        />
+
+    <record model="ir.ui.view" id="stock_laptop_tree">
+      <field name="name">stock laptop</field>
+      <field name="model">stock.stock</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="brand"/>
+          <field name="name"/>
+          <field name="value"/>
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="stock_laptop_form">
+      <field name="name">stock laptop</field>
+      <field name="model">stock.stock</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+
+            <field name="brand"/>
+            <field name="name"/>
+            <field name="value"/>
+            
+        </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="stock_window">
+      <field name="name">stock window</field>
+      <field name="res_model">stock.stock</field>
+      <field name="view_mode">tree,form</field>
+      <field name = "view_type">form</field>
+      <field name="view_id" ref="stock_laptop_tree"/>
+    </record>
+
+
+    <record model="ir.ui.view" id="rajesh_laptop_tree">
+      <field name="name">rajesh laptop</field>
+      <field name="model">rajesh.rajesh</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="Brandname"/>
+          <!-- <field name="stock_id"/>
+           -->
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rajesh_laptop_form">
+      <field name="name">rajesh laptop</field>
+      <field name="model">rajesh.rajesh</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="Brandname"/>
+            <!-- <field name="stock_id"/> -->
+          </group>
+        </form>
+      </field>
+    </record>
+    
+
+    <record model="ir.actions.act_window" id="rajesh_window">
+      <field name="name">List all laptop brand</field>
+      <field name="res_model">rajesh.rajesh</field>
+      <field name="view_mode">tree,form</field>
+      <field name = "view_type">form</field>
+      <field name="view_id" ref="rajesh_laptop_tree"/>
+    </record>
+
+     <record model="ir.ui.view" id="laptop_model_tree">
+      <field name="name">Laptop Model</field>
+      <field name="model">laptop.brand.model</field>
+      <field name="arch" type="xml">
+        <tree>
+           <field name="brandname"/>
+          <field name="Model_Number"/>
+          
+          <!-- <field name="stock_id"/>
+           -->
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="laptop_model_form">
+      <field name="name">Laptop Model</field>
+      <field name="model">laptop.brand.model</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+             <field name="brandname"/>
+            <field name="Model_Number"/>
+            
+            <!-- <field name="stock_id"/> -->
+          </group>
+        </form>
+      </field>
+    </record>
+    
+
+    <record model="ir.actions.act_window" id="laptop_model">
+      <field name="name">List all laptop brand</field>
+      <field name="res_model">laptop.brand.model</field>
+      <field name="view_mode">tree,form</field>
+      <field name = "view_type">form</field>
+      <field name="view_id" ref="laptop_model_tree"/>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="family_laptop">
+      <field name="name">family laptop</field>
+      <field name="model">family.family</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="familyname"/>
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="family_window">
+      <field name="name">family window</field>
+      <field name="res_model">family.family</field>
+      <field name="view_mode">tree,form</field>
+      <field name = "view_type">form</field>
+      <field name="view_id" ref="family_laptop"/>
+    </record>
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="academy.action_server">
+      <field name="name">academy server</field>
+      <field name="model_id" ref="model_academy_academy"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course form">
+                  <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="responsible_id"/>
+
+                  </group>
+                  <notebook>
+                  <page string="Sessions">
+                    <field name="session_ids">
+                      <tree string="Registered sessions">
+                        <field name="name"/>
+                        <field name="instructor_id"/>
+                      </tree>
+                    </field>
+                  </page>
+                  </notebook>
+                </form>
+            </field>
+        </record>
+
+     <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="responsible_id"/>
+                    <field name="session_ids"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">course</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+     <!--relation demo start -->
+      <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                </tree>
+            </field>
+        </record>
+
+     <record model="ir.ui.view" id="session_form_view">
+            <field name="name">session.form</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <sheet>
+                        <group>
+                            <group string="General">
+                                <field name="course_id" options="{'no_create': True}"/>
+                                <field name="name"/>
+                                <field name="instructor_id"/>
+                            </group>
+                            <group string="Schedule">
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="seats"/>
+                            </group>
+                        </group>
+                        <label for="attendee_ids"/>
+                        <field name="attendee_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="session_list_action">
+            <field name="name">Sessions</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--relation demo end -->
+
+    <!-- Top menu item -->
+    
+    <menuitem name="academy" id="academy.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Menu 1" id="academy.menu_1" parent="academy.menu_root"/>
+    <menuitem name="Menu 2" id="academy.menu_2" parent="academy.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="List" id="academy.menu_1_list" parent="academy.menu_1"
+              action="academy_window"/>
+    <menuitem name="Stock" id="academy.menu_3_list" parent="academy.menu_1"
+              action="stock_window"/>
+    <menuitem name="Laptop Brand List" id="academy.menu_4_list" parent="academy.menu_1"
+              action="rajesh_window"/>
+    <menuitem name="Laptop Model List" id="academy.menu_5_list" parent="academy.menu_1"
+              action="laptop_model"/>
+
+
+    <!--<menuitem name="Family Name" id="academy.menu_1_family" parent="academy.menu_2"
+              action="family_window"/> -->
+    <menuitem name="form" id="course_menu" parent="academy.menu_2"
+              action="course_list_action"/>
+    <menuitem id="session_menu" name="Sessions" parent="academy.menu_2" action="session_list_action"/>
+    
+        <!--
+    <menuitem name="Server to list" id="academy" parent="academy.menu_2"
+              action="academy.action_server"/>
+    -->
+  </data>
+</odoo>
